@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>TicTacToe</title>
+</head>
+<body>
+  <div class="container">
+
+    <div class="upperContainer">
+
+      <h1 class="title">Tic Tac Toe</h1>
+
+      <!-- <div class="twoPlayerComputerSelection">
+        <button class="playerComputerSelector">Play against a friend</button>
+        <button class="playerComputerSelector">Play against the computer</button>
+      </div> -->
+
+      <div class="scoreTurnContainer">
+
+        <div data-symbol="X" class="scoreTurn">
+          <span class="playerTurn playerTurnX inactive">X</span>
+          <span class="playerScoreX playerTurnX inactive"></span>
+        </div>
+
+        <div data-symbol="O" class="scoreTurn">
+          <span class="playerTurn playerTurnO inactive">O</span>
+          <span class="playerScoreO playerTurnO inactive"></span>
+        </div>
+
+      </div>
+
+      <!-- <div class="gameDetails">
+        <p class="turnGameOver">Select mode or Start game</p>
+      </div> -->
+
+    </div>
+
+    <div class="lowerContainer">
+      <div data-cell="1" data-symbol="" class="gameGrid BB BR"></div>
+      <div data-cell="2" data-symbol="" class="gameGrid BB BR"></div>
+      <div data-cell="3" data-symbol="" class="gameGrid BB"></div>
+      <div data-cell="4" data-symbol="" class="gameGrid BB BR"></div>
+      <div data-cell="5" data-symbol="" class="gameGrid BB BR"></div>
+      <div data-cell="6" data-symbol="" class="gameGrid BB"></div>
+      <div data-cell="7" data-symbol="" class="gameGrid BR"></div>
+      <div data-cell="8" data-symbol="" class="gameGrid BR"></div>
+      <div data-cell="9" data-symbol="" class="gameGrid"></div>
+    </div>
+
+    <div class="restartContainer">
+      <button class="restart">Restart game</button>
+    </div>
+
+  </div>
+</body>
+</html>
