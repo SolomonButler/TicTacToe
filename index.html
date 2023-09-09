@@ -21,16 +21,30 @@
 
       <div class="scoreTurnContainer">
 
-        <div data-symbol="X" class="scoreTurn">
-          <span class="playerTurn playerTurnX inactive">X</span>
-          <span class="playerScoreX playerTurnX inactive"></span>
+        <div data-symbol="X" class="scoreTurn click">
+          <div data-symbol="X" class="playerTurn click">
+            <span data-symbol="X" class="player playerTurnX click">Player</span>
+            <span data-symbol="X" class="playerTurn playerTurnX click inactive">X</span>
+          </div>
+          <div data-symbol="X" class="playerScore click">
+            <span data-symbol="X" class="score click">Score</span>
+            <span data-symbol="X" class="playerScoreX click">0</span>
+          </div>
         </div>
-
-        <div data-symbol="O" class="scoreTurn">
-          <span class="playerTurn playerTurnO inactive">O</span>
-          <span class="playerScoreO playerTurnO inactive"></span>
+        <div class="choosePlayer scoreTurn">
+          <p>Choose your player</p>
+          <p class="larger">&#8646;</p>
         </div>
-
+        <div data-symbol="O" class="scoreTurn click">
+          <div data-symbol="O" class="playerTurn click">
+            <span data-symbol="O" class="player playerTurnO click">Player</span>
+            <span data-symbol="O" class="playerTurn playerTurnO click inactive">O</span>
+          </div>
+          <div data-symbol="O" class="playerScore click">
+            <span data-symbol="O" class="score click">Score</span>
+            <span data-symbol="O" class="playerScoreO click">0</span>
+          </div>
+        </div>
       </div>
 
       <!-- <div class="gameDetails">
@@ -49,12 +63,12 @@
       <div data-cell="7" data-symbol="" class="gameGrid BR"></div>
       <div data-cell="8" data-symbol="" class="gameGrid BR"></div>
       <div data-cell="9" data-symbol="" class="gameGrid"></div>
+      <div class="winScreen"></div>
     </div>
 
     <div class="restartContainer">
       <button class="restart">Restart game</button>
     </div>
-
   </div>
 </body>
 </html>

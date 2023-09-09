@@ -2,7 +2,7 @@
 const players = (() => {
   let player = {
     playerTurn: true,
-    playerSymbol: () => player.playerTurn ? '\u2715' : '\u004f',
+    playerSymbol: () => player.playerTurn ? '\u2715' : '○',
   };
   return{
     player,
@@ -11,7 +11,7 @@ const players = (() => {
 
 // Creating choose player object.
 const choosePlayer = (() => {
-  let playerChoice = Array.from(document.querySelectorAll('.scoreTurn'));
+  let playerChoice = Array.from(document.querySelectorAll('.click'));
 
   let playerChoiceHandler = () => {
     playerChoice.forEach(choice => {
@@ -86,6 +86,8 @@ const gameController = (() => {
         cell.dataset.symbol = '';
         cell.textContent = '';
       });
+      cellArrX = [];
+      cellArrO = [];
     }
   };
 
@@ -131,10 +133,12 @@ playerController.cellClick()
 // Creating functions to control dom on win/loss/tie.
 const domController = (() => {
 
+  let resetButton = document.querySelector('.restart');
+  let winScreen = document.querySelector('.winScreen');
+  let playerXScore = document.querySelector('.playerScoreX');
+  let playerOScore = document.querySelector('.playerScoreO');
   let playerTurnX = Array.from(document.querySelectorAll('.playerTurnX'));
   let playerTurnO = Array.from(document.querySelectorAll('.playerTurnO'));
-  let playerScoreX = document.querySelector('.playerScoreX');
-  let playerScoreO = document.querySelector('.playerScoreO');
 
   let colorXChanger = () => {
     playerTurnX.forEach(turn => {
@@ -153,22 +157,48 @@ const domController = (() => {
   };
 
   let xWin = () => {
-    console.log('X Wins!');
+    winScreen.textContent = `Player \u2715 Wins!`;
+    winScreen.classList.toggle('winScreenToggle');
+    playerXScore.textContent ++;
+    setTimeout(() => {
+      gameController.reset();
+      winScreen.classList.toggle('winScreenToggle');
+    }, 2000);
   };
   let oWin = () => {
-    console.log('O Wins!');
+    winScreen.textContent = `Player O Wins!`;
+    winScreen.classList.toggle('winScreenToggle');
+    playerOScore.textContent ++;
+    setTimeout(() => {
+      gameController.reset();
+      winScreen.classList.toggle('winScreenToggle');
+    }, 2000);
   };
   let tieGame = () => {
-    console.log('It\'s a Tie!');
+    winScreen.textContent = `It's a Tie!`;
+    winScreen.classList.toggle('winScreenToggle');
+    setTimeout(() => {
+      gameController.reset();
+      winScreen.classList.toggle('winScreenToggle');
+    }, 2000);
   };
+  let reset = () => {
+    resetButton.addEventListener('click', () => {
+      gameController.reset();
+      playerXScore.textContent = 0;
+      playerOScore.textContent = 0;
+    })
+  }
 
   return{
     xWin,
     oWin,
     tieGame,
+    reset,
     colorXChanger,
     colorOChanger,
   }
 })();
+domController.reset();
 domController.colorXChanger();
 domController.colorOChanger();

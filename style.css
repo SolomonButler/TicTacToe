@@ -49,7 +49,7 @@ table {
 
 /*  End of reset  */
 
-*, h1, span, p{
+*, h1, span, p, .winScreen{
   box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -75,7 +75,7 @@ button, .scoreTurn{
   color: #12BDAC;
   font-size: 17px;
   font-weight: 600;
-  padding: 10px;
+  padding: 5px;
   margin: 5px 0;
   cursor: pointer;
 }
@@ -122,13 +122,32 @@ button:hover{
 }
 
 .scoreTurnContainer{
-  gap: 10vw;
+  width: calc(30rem + 40px);
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .scoreTurn{
-  width: 10vw;
-  justify-content: space-evenly;
-  font-size: 30px;
+  flex-grow: 1;
+  justify-content: space-around;
+  font-size: 25px;
+}
+
+.playerScore, .playerTurn, .choosePlayer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+
+.choosePlayer{
+  font-size: medium;
+  width: calc(100% - 90%);
+  cursor:default;
+}
+
+.larger{
+  font-size: 2rem;
 }
 
 .active{
@@ -147,15 +166,35 @@ button:hover{
 /*  Start of lower section ______________________________  */
 
 .lowerContainer{
-  /* width: 40%; */
+  position: relative;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
+  grid-template-columns: repeat(3, 10rem);
+  grid-template-rows: repeat(3, 10rem);
   justify-content: center;
   align-items: center;
   background-color: #12BDAC;
   border-radius: 5px;
+}
+
+.winScreen{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgb(80, 80, 80);
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 45px;
+  color:#12BDAC;
+  transition: all 1s ease-in-out 0s;
+}
+
+.winScreenToggle{
+  opacity: 1;
 }
 
 .gameGrid{
@@ -164,6 +203,12 @@ button:hover{
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  font-size: 5rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.lowerContainer > [data-symbol="O"]{
+  font-size: 9rem;
 }
 
 .BB{
